@@ -1,6 +1,9 @@
-"use client";
 import React from "react";
-import ComingSoon from "../common/components/ComingSoon";
+import dynamic from "next/dynamic";
+
+const ComingSoon = dynamic(() => import("../common/components/ComingSoon"), {
+  ssr: true,
+});
 
 const Page = () => {
   return (
