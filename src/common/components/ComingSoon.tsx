@@ -9,7 +9,7 @@ import { FiShoppingCart } from "react-icons/fi";
 
 export default function ComingSoon() {
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-2">
+    <div className="grid grid-cols lg:grid-cols-2">
       <div className="relative flex flex-col gap-2 items-center justify-center min-h-screen w-full px-4 bg-black overflow-hidden">
         {/* Floating Stars in Background */}
         {[...Array(10)].map((_, i) => (
