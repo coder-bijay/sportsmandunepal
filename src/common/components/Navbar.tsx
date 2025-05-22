@@ -13,13 +13,13 @@ export const Navbar = () => {
   return (
     <div className="fixed w-screen top-0 z-50">
       <div className="w-full h-[60px] bg-white flex items-center justify-between px-4 shadow-lg">
-        <div className="hidden lg:flex items-center border min-w-[300px] rounded-md">
+        <div className="hidden lg:flex items-center border border-white hover:border-gray-300 min-w-[300px] rounded-md">
           <input
             type="text"
             placeholder="Search for products..."
             className="flex-1 px-3 py-2 outline-none"
           />
-          <button className="px-3 text-red-500">
+          <button className="px-3 text-blue-400">
             <FiSearch />
           </button>
         </div>
@@ -29,7 +29,7 @@ export const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 text-xl">
             <FiShoppingCart className="cursor-pointer" />
             <FaRegUser className="cursor-pointer" />
           </div>
@@ -71,13 +71,13 @@ export const Navbar = () => {
             </div>
 
             {/* Search */}
-            <div className="flex items-center border rounded-md overflow-hidden mb-4">
+            <div className="flex items-center border border-gray-300 rounded-md mb-4 mt-6">
               <input
                 type="text"
                 placeholder="Search for products..."
                 className="flex-1 px-3 py-2 outline-none"
               />
-              <button className="px-3 text-red-500">
+              <button className="px-3 text-blue-400">
                 <FiSearch />
               </button>
             </div>

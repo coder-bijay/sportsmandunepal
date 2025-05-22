@@ -1,6 +1,6 @@
 "use client";
+import ComingSoon from "@/src/common/components/ComingSoon";
 import React from "react";
-import ComingSoon from "../common/components/ComingSoon";
 
 const Page = () => {
   return (
