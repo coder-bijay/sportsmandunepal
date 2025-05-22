@@ -9,8 +9,8 @@ import { FiShoppingCart } from "react-icons/fi";
 
 export default function ComingSoon() {
   return (
-    <div className="grid grid-cols lg:grid-cols-2">
-      <div className="relative flex flex-col gap-2 items-center justify-center min-h-screen w-full px-4 bg-black overflow-hidden">
+    <div className="grid grid-cols lg:grid-cols-2 w-full overflow-hidden">
+      <div className="relative flex flex-col gap-2 items-center justify-center h-fit py-20 xl:py-0 xl:h-[89vh] w-full px-4 bg-black overflow-hidden">
         {/* Floating Stars in Background */}
         {[...Array(10)].map((_, i) => (
           <motion.div
@@ -122,7 +122,6 @@ export default function ComingSoon() {
           @ sportsmandunepal
         </motion.div>
       </div>
-
       <div className="relative">
         {[...Array(20)].map((_, i) => (
           <motion.div
@@ -143,7 +142,7 @@ export default function ComingSoon() {
           src={`/coming-soon.jpg`}
           height={500}
           width={500}
-          className="h-[100vh] w-full"
+          className="h-[37vh] xl:h-[89vh] w-full"
           alt="coming-soon"
         />
       </div>
