@@ -8,7 +8,7 @@ export const ProductCard = ({
 }: {
   image: string;
   title: string;
-  price: string;
+  price: string | number;
 }) => {
   return (
     <div className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 2xl:w-1/5 p-2">
