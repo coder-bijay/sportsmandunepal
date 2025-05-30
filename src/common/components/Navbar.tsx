@@ -47,35 +47,39 @@ export const Navbar = () => {
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden lg:flex bg-blue-600 gap-6 justify-center text-md font-semibold text-white items-center w-full h-[48px]">
-        <Link href="/" className="cursor-pointer">
-          Home
-        </Link>
-        <Link href="/products" className="cursor-pointer">
-          All Products
-        </Link>
-        <Link href="/products/new-arrivals" className="cursor-pointer">
-          New Arrivals
-        </Link>
-        <Link href="/products/featured-products" className="cursor-pointer">
-          Featured Products
-        </Link>
-        <div className="cursor-pointer flex items-center gap-1">
-          <SelectDropdown
-            label="Shop By Category"
-            options={[
-              "Shin Pads",
-              "Mug",
-              "Skipping Rope",
-              "Compression Inner",
-              "Nepal Football Jersey's",
-              "Net",
-              "Muscles Support",
-            ]}
-            className="font-medium lg:font-semibold"
-            selected={selectedItem}
-            onSelect={(val) => setSelectedItem(val)}
-          />
+      <div className="hidden lg:flex bg-blue-600 w-full justify-center h-[48px]">
+        <div className="w-full max-w-[1920px] h-full">
+          <div className="container mx-auto flex gap-8 xl:gap-10 h-full text-md items-center justify-center font-semibold text-white">
+            <Link href="/" className="cursor-pointer">
+              Home
+            </Link>
+            <Link href="/products" className="cursor-pointer">
+              All Products
+            </Link>
+            <Link href="/products/new-arrivals" className="cursor-pointer">
+              New Arrivals
+            </Link>
+            <Link href="/products/featured-products" className="cursor-pointer">
+              Featured Products
+            </Link>
+            <div className="cursor-pointer flex items-center gap-1">
+              <SelectDropdown
+                label="Shop By Category"
+                options={[
+                  "Shin Pads",
+                  "Mug",
+                  "Skipping Rope",
+                  "Compression Inner",
+                  "Nepal Football Jersey's",
+                  "Net",
+                  "Muscles Support",
+                ]}
+                className="font-medium lg:font-semibold"
+                selected={selectedItem}
+                onSelect={(val) => setSelectedItem(val)}
+              />
+            </div>
+          </div>
         </div>
       </div>
 
