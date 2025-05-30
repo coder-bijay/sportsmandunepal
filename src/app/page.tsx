@@ -8,6 +8,7 @@ const ComingSoon = dynamic(() => import("../common/components/ComingSoon"), {
 const Page = () => {
   return (
     <>
+      Bijay subedi
       <ComingSoon />
     </>
   );
