@@ -42,7 +42,8 @@ const ProductGrid = () => {
   ];
 
   return (
-    <div className="container mx-auto p-2 lg:p-4">
+    <div className="container mx-auto p-2 flex flex-col gap-4 lg:p-4">
+      <h1 className="text-2xl font-bold">Featured Products</h1>
       <div className="flex flex-wrap">
         {products.map((product, index) => (
           <ProductCard key={index} {...product} />
