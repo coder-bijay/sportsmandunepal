@@ -8,7 +8,6 @@ import { FiSearch } from "react-icons/fi";
 import Image from "next/image";
 import { SelectDropdown } from "./SelectDropdown";
 import Link from "next/link";
-import Container from "../Container";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
