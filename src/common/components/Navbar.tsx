@@ -6,20 +6,23 @@ import { FaRegUser } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
 import Image from "next/image";
+import { SelectDropdown } from "./SelectDropdown";
+import Link from "next/link";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState("");
 
   return (
     <div className="fixed w-screen top-0 z-50">
-      <div className="w-full h-[60px] bg-white flex items-center justify-between px-4 shadow-lg">
-        <div className="hidden lg:flex items-center border min-w-[300px] rounded-md">
+      <div className="w-full h-[60px] bg-white flex items-center justify-between px-4 lg:px-10 shadow-lg">
+        <div className="hidden lg:flex items-center border border-white hover:border-gray-300 min-w-[300px] rounded-md">
           <input
             type="text"
             placeholder="Search for products..."
             className="flex-1 px-3 py-2 outline-none"
           />
-          <button className="px-3 text-red-500">
+          <button className="px-3 text-blue-400">
             <FiSearch />
           </button>
         </div>
@@ -28,8 +31,8 @@ export const Navbar = () => {
           <Image src="/logo.png" alt="logo" width={30} height={30} />
         </div>
 
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6 min-w-[120px]">
+          <div className="flex items-center gap-6 text-xl">
             <FiShoppingCart className="cursor-pointer" />
             <FaRegUser className="cursor-pointer" />
           </div>
@@ -44,13 +47,35 @@ export const Navbar = () => {
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden lg:flex bg-blue-600 gap-6 justify-center font-semibold text-white items-center w-full h-[48px]">
-        <div className="cursor-pointer">Home</div>
-        <div className="cursor-pointer">All Products</div>
-        <div className="cursor-pointer">New Arrivals</div>
-        <div className="cursor-pointer">Featured Products</div>
+      <div className="hidden lg:flex bg-blue-600 gap-6 justify-center text-md font-semibold text-white items-center w-full h-[48px]">
+        <Link href="/" className="cursor-pointer">
+          Home
+        </Link>
+        <Link href="/products" className="cursor-pointer">
+          All Products
+        </Link>
+        <Link href="/products/new-arrivals" className="cursor-pointer">
+          New Arrivals
+        </Link>
+        <Link href="/products/featured-products" className="cursor-pointer">
+          Featured Products
+        </Link>
         <div className="cursor-pointer flex items-center gap-1">
-          Shop By Category <span className="text-sm">▼</span>
+          <SelectDropdown
+            label="Shop By Category"
+            options={[
+              "Shin Pads",
+              "Mug",
+              "Skipping Rope",
+              "Compression Inner",
+              "Nepal Football Jersey's",
+              "Net",
+              "Muscles Support",
+            ]}
+            className="font-medium lg:font-semibold"
+            selected={selectedItem}
+            onSelect={(val) => setSelectedItem(val)}
+          />
         </div>
       </div>
 
@@ -71,26 +96,51 @@ export const Navbar = () => {
             </div>
 
             {/* Search */}
-            <div className="flex items-center border rounded-md overflow-hidden mb-4">
+            <div className="flex items-center border border-gray-300 rounded-md mb-4 mt-6">
               <input
                 type="text"
                 placeholder="Search for products..."
                 className="flex-1 px-3 py-2 outline-none"
               />
-              <button className="px-3 text-red-500">
+              <button className="px-3 text-blue-400">
                 <FiSearch />
               </button>
             </div>
 
             {/* Nav Links */}
             <nav className="flex flex-col gap-4 font-medium text-gray-800 text-lg">
-              <span className="cursor-pointer">Home</span>
-              <span className="cursor-pointer">All Products</span>
-              <span className="cursor-pointer">New Arrivals</span>
-              <span className="cursor-pointer">Featured Products</span>
-              <span className="cursor-pointer flex items-center gap-2">
-                Shop By Category <span className="text-xs">▼</span>
-              </span>
+              <Link href="/" className="cursor-pointer">
+                Home
+              </Link>
+              <Link href="/products" className="cursor-pointer">
+                All Products
+              </Link>
+              <Link href="/products/new-arrivals" className="cursor-pointer">
+                New Arrivals
+              </Link>
+              <Link
+                href="/products/featured-products"
+                className="cursor-pointer"
+              >
+                Featured Products
+              </Link>
+              <div className="cursor-pointer flex items-center gap-2">
+                <SelectDropdown
+                  label="Shop By Category"
+                  options={[
+                    "Shin Pads",
+                    "Mug",
+                    "Skipping Rope",
+                    "Compression Inner",
+                    "Nepal Football Jersey's",
+                    "Net",
+                    "Muscles Support",
+                  ]}
+                  selected={selectedItem}
+                  className="font-medium lg:text-white lg:font-semibold"
+                  onSelect={(val) => setSelectedItem(val)}
+                />
+              </div>
             </nav>
           </div>
         </div>
