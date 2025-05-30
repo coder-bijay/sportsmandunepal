@@ -7,14 +7,23 @@ const ProductGrid = async () => {
   return (
     <div className="container mx-auto p-2 lg:p-4">
       <div className="flex flex-wrap">
-        {products?.data?.map((product: any, index: number) => (
-          <ProductCard
-            key={index}
-            image={product.image}
-            price={product.per_box_price}
-            title={product.name}
-          />
-        ))}
+        {products?.data?.map(
+          (
+            product: {
+              image: string;
+              per_box_price: string;
+              name: string;
+            },
+            index: number
+          ) => (
+            <ProductCard
+              key={index}
+              image={product.image}
+              price={product.per_box_price}
+              title={product.name}
+            />
+          )
+        )}
       </div>
     </div>
   );
