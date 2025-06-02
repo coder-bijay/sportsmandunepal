@@ -13,7 +13,7 @@ export const ProductCard = ({
   return (
     <div className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 2xl:w-1/5 p-2">
       <div className="duration-300 bg-white">
-        <Link className="cursor-pointer" href={"#"}>
+        <Link className="cursor-pointer" href={`/products/${title}`}>
           <Image
             height={240}
             width={240}
