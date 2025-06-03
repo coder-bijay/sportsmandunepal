@@ -1,6 +1,6 @@
-import { ProductCard } from "@/src/common/components/ProductCard";
 import { getProducts } from "@/src/libs/products";
 import React from "react";
+import { ProductCard } from "../components/ProductCard";
 
 const ProductGrid = async () => {
   const products = await getProducts({
@@ -24,7 +24,7 @@ const ProductGrid = async () => {
               key={index}
               image={product.image}
               price={product.per_box_price}
-              title={product.name}
+              name={product.name}
             />
           )
         )}

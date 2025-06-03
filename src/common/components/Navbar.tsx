@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
@@ -12,6 +12,21 @@ import Link from "next/link";
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMenuOpen(false);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="fixed w-screen top-0 z-50">

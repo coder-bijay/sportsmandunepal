@@ -17,3 +17,21 @@ export const getProducts = cache(async ({ query }: { query?: string }) => {
 
   return res.json();
 });
+
+export const getProductsByName = cache(async ({ name }: { name?: string }) => {
+  const url = `http://localhost:5000/api/v1/product/by-name${
+    name ? `?name=${encodeURIComponent(name)}` : ""
+  }`;
+
+  const res = await fetch(url, {
+    method: "GET",
+    next: { revalidate: 3600 },
+  });
+
+  if (!res.ok) {
+    const errorDetails = await res.text();
+    throw new Error(`Failed to fetch products: ${res.status} ${errorDetails}`);
+  }
+
+  return res.json();
+});

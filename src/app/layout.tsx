@@ -17,7 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Sports Mandu Nepal",
-  description: "All sports solutions in one place",
+  description:
+    "Top-quality sports gear at wholesale & retail rates. Fast delivery across Nepal.",
 };
 
 export default function RootLayout({
@@ -33,12 +34,10 @@ export default function RootLayout({
     >
       <body className="antialiased">
         <Navbar />
-        <Container>
-          <main className="mt-[60px] lg:p-4 lg:mt-[108px] w-full h-[calc(100vh-60px)] lg:h-[calc(100vh-108px)] overflow-auto">
-            {children}
-          </main>
-        </Container>
-        <Footer />
+        <main className="mt-[60px] flex flex-col justify-between lg:px-4 lg:mt-[108px] w-full h-[calc(100vh-60px)] lg:h-[calc(100vh-108px)] ">
+          <Container>{children}</Container>
+          <Footer />
+        </main>
       </body>
     </html>
   );
