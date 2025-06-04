@@ -7,7 +7,7 @@ export const getProducts = cache(async ({ query }: { query?: string }) => {
 
   const res = await fetch(url, {
     method: "GET",
-    next: { revalidate: 3600 },
+    next: { revalidate: 10 },
   });
 
   if (!res.ok) {
@@ -25,7 +25,7 @@ export const getProductsByName = cache(async ({ name }: { name?: string }) => {
 
   const res = await fetch(url, {
     method: "GET",
-    next: { revalidate: 3600 },
+    next: { revalidate: 10 },
   });
 
   if (!res.ok) {
