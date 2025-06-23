@@ -32,7 +32,7 @@ export const Navbar = () => {
     <div className="fixed w-screen top-0 z-50">
       <div className="w-full h-[60px] bg-white flex items-center justify-between px-4 lg:px-10 shadow-lg">
         <div className="flex items-center gap-2">
-          <Image src="/logo.png" alt="logo" width={30} height={30} />
+          <Image src="/sportsmandu.png" alt="logo" width={60} height={60} />
         </div>
 
         <div className="hidden lg:flex items-center border border-gray-200 hover:border-gray-400 min-w-[300px] xl:min-w-[400px] rounded-md">

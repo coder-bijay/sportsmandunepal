@@ -1,8 +1,8 @@
 import { cache } from "react";
 
-export const getProducts = cache(async ({ query }: { query?: string }) => {
-  const url = `https://ecommerce-backend-k792.onrender.com/api/v1/product${
-    query ? `?${query}` : ""
+export const getProducts = cache(async ({ tag }: { tag?: string }) => {
+  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/product${
+    tag ? `?tag=${tag}` : ""
   }`;
 
   const res = await fetch(url, {
@@ -18,9 +18,9 @@ export const getProducts = cache(async ({ query }: { query?: string }) => {
   return res.json();
 });
 
-export const getProductsByName = cache(async ({ name }: { name?: string }) => {
-  const url = `http://localhost:5000/api/v1/product/by-name${
-    name ? `?name=${encodeURIComponent(name)}` : ""
+export const getProductsBySlug = cache(async ({ slug }: { slug?: string }) => {
+  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/product/slug${
+    slug ? `?slug=${encodeURIComponent(slug)}` : ""
   }`;
 
   const res = await fetch(url, {

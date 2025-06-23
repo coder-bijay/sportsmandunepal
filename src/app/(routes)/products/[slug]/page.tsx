@@ -1,15 +1,16 @@
-import { getProductsByName } from "@/src/libs/products";
-import Image from "next/image";
+import { getProductsBySlug } from "@/src/libs/products";
 import { notFound } from "next/navigation";
 import ImageSelector from "../components/ImageSelector";
-// import ImageSelector from "../components/ImageSelector";
+import { IProduct } from "../interface";
 
 interface ProductPageProps {
-  params: { name: string };
+  params: { slug: string };
 }
 
 const ProductDetails = async ({ params }: ProductPageProps) => {
-  const product = await getProductsByName({ name: params.name });
+  const product: {
+    data: IProduct;
+  } = await getProductsBySlug({ slug: params.slug });
 
   if (!product) {
     notFound();

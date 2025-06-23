@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BiHeart, BiMapPin, BiPhone } from "react-icons/bi";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
@@ -11,10 +12,7 @@ const Footer = () => {
         {/* Logo & Description */}
         <div>
           <div className="flex items-center space-x-2 mb-4">
-            <div className="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center text-white font-bold text-sm">
-              S
-            </div>
-            <h2 className="text-lg font-semibold">Sports Mandu Nepal</h2>
+            <Image src="/sportsmandu.png" alt="logo" width={100} height={60} />
           </div>
           <p className="text-sm text-gray-600 w-full leading-6 lg:max-w-[340px]">
             Top-quality sports gear at wholesale & retail rates. Fast delivery
