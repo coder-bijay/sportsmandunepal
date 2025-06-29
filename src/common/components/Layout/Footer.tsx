@@ -12,7 +12,7 @@ const Footer = () => {
         {/* Logo & Description */}
         <div>
           <div className="flex items-center space-x-2 mb-4">
-            <Image src="/sportsmandu.png" alt="logo" width={100} height={60} />
+            <Image src="/sportsmandu.png" alt="logo" width={80} height={60} />
           </div>
           <p className="text-sm text-gray-600 w-full leading-6 lg:max-w-[340px]">
             Top-quality sports gear at wholesale & retail rates. Fast delivery
