@@ -2,6 +2,7 @@ import React from "react";
 import { getProducts } from "@/src/libs/products";
 import { ProductCard } from "./components/ProductCard";
 import { IProduct } from "./interface";
+import { notFound } from "next/navigation";
 
 interface ProductGridProps {
   searchParams: Promise<{
@@ -22,7 +23,11 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
     value: query.value,
   });
 
-  const productList = products?.data || [];
+  if (!products || !products.data) {
+    notFound();
+  }
+
+  const productList = products?.data;
 
   return (
     <div className="container mx-auto p-2 lg:p-4">
