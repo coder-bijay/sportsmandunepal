@@ -4,13 +4,13 @@ import { ProductCard } from "./components/ProductCard";
 import { IProduct } from "./interface";
 
 interface ProductGridProps {
-  searchParams: {
+  searchParams: Promise<{
     category?: string;
-  };
+  }>;
 }
 
 const ProductGrid = async ({ searchParams }: ProductGridProps) => {
-  const category = searchParams.category;
+  const { category } = await searchParams;
 
   const query = {
     query: category ? "category" : "tag",
