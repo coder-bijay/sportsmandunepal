@@ -2,7 +2,6 @@ import { cache } from "react";
 
 export const getProducts = cache(
   async ({ query, value }: { query: string; value: string }) => {
-    console.log("query", query);
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/product${
       query ? `?${query}=${encodeURIComponent(value)}` : ""
     }`;
