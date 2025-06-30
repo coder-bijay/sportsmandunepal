@@ -4,17 +4,17 @@ import React from "react";
 import { ProductCard } from "../(routes)/products/components/ProductCard";
 import { IProduct } from "../(routes)/products/interface";
 
-interface Props {
-  searchParams: {
+interface ProductGridProps {
+  searchParams: Promise<{
     search?: string;
-  };
+  }>;
 }
 
-const Page = async ({ searchParams }: Props) => {
-  const { search } = searchParams;
+const ProductGrid = async ({ searchParams }: ProductGridProps) => {
+  const { search } = await searchParams;
 
   const query = {
-    query: "search",
+    query: search ? "search" : "",
     value: search || "",
   };
 
@@ -27,9 +27,7 @@ const Page = async ({ searchParams }: Props) => {
     notFound();
   }
 
-  const productList = products.data;
-
-  console.log("Product List HOME:", productList);
+  const productList = products?.data;
 
   return (
     <div className="flex items-center justify-center flex-col mx-auto p-2 lg:p-4">
@@ -59,9 +57,7 @@ const Page = async ({ searchParams }: Props) => {
       ) : (
         <div className="flex flex-col gap-2 w-full">
           {productList.length === 0 ? (
-            <div className="text-center text-gray-500">
-              No products found for your search.
-            </div>
+            <div className="text-center text-gray-500">No products found.</div>
           ) : (
             <div className="flex flex-wrap justify-center w-full">
               {productList.map((product: IProduct, index: number) => (
@@ -81,4 +77,4 @@ const Page = async ({ searchParams }: Props) => {
   );
 };
 
-export default Page;
+export default ProductGrid;
