@@ -13,7 +13,6 @@ export const CategoryDropdown: React.FC<CategoryDropdownProps> = ({
   setMenuOpen,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState<string | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
@@ -30,7 +29,6 @@ export const CategoryDropdown: React.FC<CategoryDropdownProps> = ({
   };
 
   const handleSelect = (option: string) => {
-    setSelected(option);
     setIsOpen(false);
     router.push(`/products?category=${encodeURIComponent(option)}`);
     setMenuOpen?.(false);
