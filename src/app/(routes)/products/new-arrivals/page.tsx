@@ -4,7 +4,7 @@ import { ProductCard } from "../components/ProductCard";
 import { IProduct } from "../interface";
 import { notFound } from "next/navigation";
 
-const ProductGrid = async () => {
+const NewArrivalsProductGrid = async () => {
   const products = await getProducts({
     query: "tag",
     value: "new_arrivals",
@@ -41,4 +41,4 @@ const ProductGrid = async () => {
   );
 };
 
-export default ProductGrid;
+export default NewArrivalsProductGrid;
