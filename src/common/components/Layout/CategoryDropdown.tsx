@@ -62,11 +62,7 @@ export const CategoryDropdown: React.FC<CategoryDropdownProps> = ({
             <li
               key={cat.name}
               onClick={() => handleSelect(cat._id)}
-              className={`px-4 py-2 cursor-pointer hover:bg-gray-200 hover:rounded-t-md ${
-                selected === cat._id
-                  ? "text-red-600 border-l-4 border-red-500 bg-gray-200 rounded-t-md"
-                  : ""
-              }`}
+              className={`px-4 py-2 cursor-pointer capitalize hover:px-3 hover:rounded-t-md hover:text-red-600 hover:border-l-4 hover:border-red-500 hover:bg-gray-200 `}
             >
               {cat.name}
             </li>

@@ -21,7 +21,9 @@ const ProductDetailPage = async ({
     <div className="flex flex-col md:flex-row justify-center items-center gap-6 p-6">
       <ImageSelector images={[productData.image, productData.image]} />
       <div className="flex flex-col max-w-md">
-        <h1 className="text-2xl font-bold mb-2">{productData.name}</h1>
+        <h1 className="text-2xl font-bold mb-2 capitalize">
+          {productData.name}
+        </h1>
         <p className="text-gray-600 whitespace-pre-line mb-4">
           {productData.description}
         </p>

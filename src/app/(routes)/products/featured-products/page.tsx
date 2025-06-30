@@ -20,7 +20,7 @@ const ProductGrid = async () => {
     <div className="container mx-auto p-2 flex flex-col gap-4 lg:p-4">
       <h1 className="text-2xl font-bold">Featured Products</h1>
       {productList?.length === 0 ? (
-        <div className="text-center text-gray-500">
+        <div className="flex justify-center items-center min-h-[140px] text-gray-500">
           No featured products found.
         </div>
       ) : (

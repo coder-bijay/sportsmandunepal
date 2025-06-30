@@ -21,7 +21,9 @@ const ProductGrid = async () => {
       <h1 className="text-2xl font-bold">New Arrivals</h1>
 
       {productList?.length === 0 ? (
-        <div className="text-center text-gray-500">No new arrivals found.</div>
+        <div className="flex justify-center items-center min-h-[140px] text-gray-500">
+          No new arrivals found.
+        </div>
       ) : (
         <div className="flex flex-wrap">
           {productList?.map((product: IProduct, index: number) => (

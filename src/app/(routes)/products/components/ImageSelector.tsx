@@ -13,7 +13,7 @@ const ImageSelector = ({ images }: { images: string[] }) => {
             key={idx}
             src={img}
             alt={`thumbnail-${idx}`}
-            className={`w-12 h-12 border rounded cursor-pointer ${
+            className={`w-12 h-12 border object-cover rounded cursor-pointer ${
               selectedImage === img ? "border-black" : "border-gray-300"
             }`}
             onClick={() => setSelectedImage(img)}
@@ -24,7 +24,7 @@ const ImageSelector = ({ images }: { images: string[] }) => {
         <img
           src={selectedImage}
           alt="Selected Product"
-          className="w-full h-full object-contain"
+          className="w-full h-full object-cover"
         />
       </div>
     </div>

@@ -13,7 +13,7 @@ export const ProductCard = ({
   price: string | number;
 }) => {
   return (
-    <div className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 2xl:w-1/5 p-2">
+    <div className="w-[260px] p-2">
       <div className="duration-300 bg-white">
         <Link className="cursor-pointer" href={`/products/${slug}`}>
           <Image
@@ -25,7 +25,7 @@ export const ProductCard = ({
           />
         </Link>
         <div className="p-2 lg:p-4 flex flex-col gap-1">
-          <h3 className="text-xs lg:text-sm font-bold min-h-[2rem] lg:min-h-fit line-clamp-2">
+          <h3 className="text-xs capitalize lg:text-sm font-bold min-h-[2rem] lg:min-h-fit line-clamp-2">
             {name}
           </h3>
           <p className="text-xs lg:text-sm text-red-600 font-semibold">
