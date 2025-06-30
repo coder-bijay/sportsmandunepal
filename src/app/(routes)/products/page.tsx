@@ -10,7 +10,7 @@ interface ProductGridProps {
   }>;
 }
 
-const ProductGrid = async ({ searchParams }: ProductGridProps) => {
+const ProductsGrid = async ({ searchParams }: ProductGridProps) => {
   const { category } = await searchParams;
 
   const query = {
@@ -52,4 +52,4 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
   );
 };
 
-export default ProductGrid;
+export default ProductsGrid;
