@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getProducts } from "@/src/libs/products";
 import React from "react";
 import { ProductCard } from "../components/ProductCard";
