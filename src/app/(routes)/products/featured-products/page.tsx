@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 import { getProducts } from "@/src/libs/products";
 import React from "react";
 import { ProductCard } from "../components/ProductCard";
@@ -10,7 +9,7 @@ const FeaturedProductGrid = async () => {
     value: "featured",
   });
 
-  const productList = (products && products?.data) ?? [];
+  const productList = (products && products?.data) || [];
 
   return (
     <div className="container mx-auto p-2 flex flex-col gap-4 lg:p-4">
