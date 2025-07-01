@@ -11,7 +11,7 @@ const FeaturedProductGrid = async () => {
   });
 
   if (!products || !products.data) {
-    notFound();
+    return notFound();
   }
 
   const productList = products?.data;
