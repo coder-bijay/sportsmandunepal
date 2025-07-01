@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { ClientNavButtons } from "../common/components/ClientNavButtons";
 
 export default function NotFound() {
