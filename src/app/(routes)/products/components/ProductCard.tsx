@@ -13,7 +13,7 @@ export const ProductCard = ({
   price: string | number;
 }) => {
   return (
-    <div className="w-[260px] p-2">
+    <div className="w-[90%] md:w-[260px] p-2">
       <div className="duration-300 bg-white">
         <Link className="cursor-pointer" href={`/products/${slug}`}>
           <Image
@@ -21,7 +21,7 @@ export const ProductCard = ({
             width={240}
             src={image}
             alt={name}
-            className="w-full h-48 md:h-60 bg-gray-200 transition-shadow hover:shadow-lg object-cover rounded"
+            className="w-full h-60 bg-gray-200 transition-shadow hover:shadow-lg object-cover rounded"
           />
         </Link>
         <div className="p-2 lg:p-4 flex flex-col gap-1">

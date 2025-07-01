@@ -10,7 +10,7 @@ export const SearchInput = () => {
       const origin = window.location.origin;
       const searchParams = new URLSearchParams();
       searchParams.set("search", inputValue.trim());
-      const newUrl = `${origin}/?${searchParams.toString()}`;
+      const newUrl = `${origin}?${searchParams.toString()}`;
       window.location.href = newUrl;
     }
   };
@@ -31,7 +31,7 @@ export const SearchInput = () => {
           const origin = window.location.origin;
           const searchParams = new URLSearchParams();
           searchParams.set("search", inputValue.trim());
-          const newUrl = `${origin}/?${searchParams.toString()}`;
+          const newUrl = `${origin}?${searchParams.toString()}`;
           window.location.href = newUrl;
         }}
         className="px-3 text-blue-400"

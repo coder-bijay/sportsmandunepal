@@ -12,9 +12,9 @@ export const Navbar = async () => {
   const categories = await getAllCategory();
 
   return (
-    <div className="fixed w-screen top-0 z-50">
+    <div className="fixed w-screen top-0 bg-white z-50">
       <Container>
-        <div className="w-full h-[60px] flex items-center justify-between px-4 lg:px-10">
+        <div className="w-full h-[60px]  flex items-center justify-between px-4 lg:px-10">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/sportsmandu.png" alt="logo" width={60} height={60} />
           </Link>
