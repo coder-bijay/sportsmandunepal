@@ -53,16 +53,16 @@ const Footer = () => {
         {/* Explore */}
         <div className="px-0 lg:px-10 xl:px-20">
           <h3 className="text-md font-semibold mb-4">Explore</h3>
-          <ul className="space-y-2 text-sm text-blue-500 md:text-gray-700">
-            <li className="hover:text-blue-500">
-              <a href="#">New Arrivals</a>
-            </li>
-            <li className="hover:text-blue-500">
-              <a href="#">Featured Products</a>
-            </li>
-            <li className="hover:text-blue-500">
-              <a href="#">Skating Boots</a>
-            </li>
+          <ul className="space-y-2 text-sm flex flex-col text-blue-500 md:text-gray-700">
+            <Link href="/products/new-arrivals" className="hover:text-blue-500">
+              New Arrivals
+            </Link>
+            <Link
+              href="/products/featured-products"
+              className="hover:text-blue-500"
+            >
+              Featured Products
+            </Link>
           </ul>
         </div>
 
