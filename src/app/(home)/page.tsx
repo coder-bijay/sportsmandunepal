@@ -1,5 +1,4 @@
 import { getProducts } from "@/src/libs/products";
-import { notFound } from "next/navigation";
 import React from "react";
 import { ProductCard } from "../(routes)/products/components/ProductCard";
 import { IProduct } from "../(routes)/products/interface";
@@ -23,11 +22,7 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
     value: query.value,
   });
 
-  if (!products || !products.data) {
-    notFound();
-  }
-
-  const productList = products?.data;
+  const productList = (products && products?.data) || [];
 
   return (
     <div className="flex items-center justify-center flex-col mx-auto p-2 lg:p-4">

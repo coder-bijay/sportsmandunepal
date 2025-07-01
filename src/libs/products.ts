@@ -25,7 +25,7 @@ export const getProducts = cache(
   }
 );
 
-export const getProductsBySlug = cache(async ({ slug }: { slug?: string }) => {
+export const getProductBySlug = cache(async ({ slug }: { slug?: string }) => {
   const url = `${process.env.NEXT_PUBLIC_BASE_URL}/product/slug${
     slug ? `?slug=${encodeURIComponent(slug)}` : ""
   }`;

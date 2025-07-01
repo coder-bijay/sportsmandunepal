@@ -2,7 +2,6 @@ import { getProducts } from "@/src/libs/products";
 import React from "react";
 import { ProductCard } from "../components/ProductCard";
 import { IProduct } from "../interface";
-import { notFound } from "next/navigation";
 
 const NewArrivalsProductGrid = async () => {
   const products = await getProducts({

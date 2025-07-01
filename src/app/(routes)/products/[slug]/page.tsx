@@ -1,5 +1,4 @@
-import { getProductsBySlug } from "@/src/libs/products";
-import { notFound } from "next/navigation";
+import { getProductBySlug } from "@/src/libs/products";
 import ImageSelector from "../components/ImageSelector";
 import { IProduct } from "../interface";
 
@@ -9,13 +8,9 @@ const ProductDetailPage = async ({
   params: Promise<{ slug: string }>;
 }) => {
   const { slug } = await params;
-  const product = await getProductsBySlug({ slug: slug });
+  const product = await getProductBySlug({ slug: slug });
 
-  if (!product || !product.data) {
-    notFound();
-  }
-
-  const productData: IProduct = product.data;
+  const productData: IProduct = (product && product.data) || [];
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center gap-6 p-6">
