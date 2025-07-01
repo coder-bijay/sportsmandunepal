@@ -6,19 +6,22 @@ export const getProducts = cache(
       query ? `?${query}=${encodeURIComponent(value)}` : ""
     }`;
 
-    const res = await fetch(url, {
-      method: "GET",
-      next: { revalidate: 10 },
-    });
+    try {
+      const res = await fetch(url, {
+        method: "GET",
+        next: { revalidate: 10 },
+      });
 
-    if (!res.ok) {
-      const errorDetails = await res.text();
-      throw new Error(
-        `Failed to fetch products: ${res.status} ${errorDetails}`
-      );
+      if (!res.ok) {
+        console.warn(`Failed to fetch products. Status: ${res.status}`);
+        return { data: [] };
+      }
+
+      return res.json();
+    } catch (error) {
+      console.error("Fetch error in getProducts:", error);
+      return { data: [] };
     }
-
-    return res.json();
   }
 );
 
