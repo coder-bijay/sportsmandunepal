@@ -39,19 +39,19 @@ export const MobileMenu = ({
 
       {menuOpen && (
         <div className="fixed inset-0 z-50 bg-red-500z">
-          <div className="bg-white shadow-2xl h-full w-[100%] sm:w-[70%] max-w-[400px] p-4 relative">
+          <div className="bg-white shadow-2xl h-full w-[100%] sm:w-[70%] max-w-[400px] px-4 py-2.5 relative">
             <div className="flex justify-between  relative items-center mb-4">
               <Link onClick={() => setMenuOpen?.(false)} href="/">
                 <Image
-                  src="/sportsmandu.png"
+                  src="/sportsmandunepal.jpg"
                   alt="logo"
-                  width={60}
-                  height={60}
+                  width={40}
+                  height={40}
                 />
               </Link>
               <button
                 onClick={() => setMenuOpen?.(false)}
-                className="text-2xl absolute right-0 cursor-pointer -top-1 text-red-600"
+                className="text-2xl absolute right-0 cursor-pointer -top-0.5 text-red-600"
               >
                 <HiX />
               </button>
