@@ -25,9 +25,9 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
   const productList = (products && products?.data) || [];
 
   return (
-    <div className="flex items-center justify-center flex-col mx-auto p-2 lg:p-4">
+    <div className="container flex items-center justify-center flex-col mx-auto p-2 lg:p-4">
       {search ? (
-        <div className="container flex flex-col w-full lg:max-w-[800px] px-10 items-start justify-center gap-2">
+        <div className=" flex flex-col px-10 gap-2 w-full">
           <h2 className="text-[22px] font-semibold mb-4">
             Search results for : <span className="text-blue-500">{search}</span>
           </h2>
@@ -36,7 +36,7 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
               No products found for your search.
             </div>
           ) : (
-            <div className="flex flex-wrap justify-center w-full">
+            <div className="flex flex-wrap">
               {productList.map((product: IProduct, index: number) => (
                 <ProductCard
                   key={index}
@@ -54,7 +54,7 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
           {productList.length === 0 ? (
             <div className="text-center text-gray-500">No products found.</div>
           ) : (
-            <div className="flex flex-wrap justify-center w-full">
+            <div className="flex flex-wrap">
               {productList.map((product: IProduct, index: number) => (
                 <ProductCard
                   key={index}

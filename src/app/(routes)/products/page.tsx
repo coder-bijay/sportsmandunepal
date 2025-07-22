@@ -31,7 +31,7 @@ const ProductsGrid = async ({ searchParams }: ProductGridProps) => {
           No products found for this category.
         </div>
       ) : (
-        <div className={`flex flex-wrap ${!category ? "justify-center" : ""}`}>
+        <div className={`flex flex-wrap`}>
           {productList.map((product: IProduct, index: number) => (
             <ProductCard
               key={index}
