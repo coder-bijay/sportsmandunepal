@@ -99,7 +99,7 @@ export const SearchInput = () => {
               <span
                 key={term}
                 onClick={() => navigateToSearch(term)}
-                className="cursor-pointer border capitalize border-blue-600 rounded-md text-blue-600 text-[12px] lg:text-[14px] font-medium px-2 py-1"
+                className="cursor-pointer border capitalize border-blue-400 rounded-md text-blue-400 text-[12px] lg:text-[14px] font-medium px-2 py-1"
               >
                 {term}
               </span>
@@ -107,14 +107,14 @@ export const SearchInput = () => {
           </div>
 
           {searchResults?.length > 0 && (
-            <div className="py-2 border-t">
+            <div className="py-2 border-t-[2px] border-blue-400">
               <span className="font-semibold text-[14px]">Search Results</span>
               <div className="flex flex-col gap-2 justify-center items-center overflow-y-auto mt-1">
                 {searchResults?.map((product) => (
                   <div
                     key={product.id}
                     onClick={() => handleProductClick(product.slug)}
-                    className="w-full cursor-pointer"
+                    className="w-full cursor-pointer flex flex-col gap-2"
                   >
                     <ProductCardForSearch
                       key={product.id}
@@ -122,6 +122,7 @@ export const SearchInput = () => {
                       name={product.name}
                       price={product.price}
                     />
+                    <div className="h-[1px] w-full bg-gray-100" />
                   </div>
                 ))}
               </div>
