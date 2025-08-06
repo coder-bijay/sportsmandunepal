@@ -28,6 +28,7 @@ const NewArrivalsProductGrid = async () => {
               image={product.image}
               price={product.price}
               name={product.name}
+              discount={product.discount}
             />
           ))}
         </div>

@@ -6,31 +6,46 @@ export const ProductCard = ({
   name,
   slug,
   price,
+  discount,
 }: {
   image: string;
   slug: string;
   name: string;
   price: string | number;
+  discount: string | number;
 }) => {
+  const actualPrice = Number(price) - Number(discount);
+
   return (
-    <div className="w-[90%] md:w-[260px] p-2">
-      <div className="duration-300 transition-shadow hover:shadow-2xl rounded-md bg-white">
+    <div className="w-[90%] md:w-[300px] p-2">
+      <div className="duration-300 transition-shadow hover:shadow-2xl rounded-md border border-blue-100 bg-white">
         <Link className="cursor-pointer" href={`/products/${slug}`}>
           <Image
             height={240}
             width={240}
             src={image}
             alt={name}
-            className="w-full h-60 p-1 object-cover rounded"
+            className="w-full h-44 px-2 object-cover rounded"
           />
         </Link>
         <div className="p-2 lg:p-4 flex flex-col gap-1">
-          <h3 className="text-xs capitalize lg:text-sm font-bold min-h-[2rem] lg:min-h-fit line-clamp-2">
+          <h3 className="text-xs capitalize lg:text-sm font-semibold min-h-[2rem] lg:min-h-fit line-clamp-2">
             {name}
           </h3>
-          <p className="text-xs lg:text-sm text-red-600 font-semibold">
-            NPR {price}
-          </p>
+          <div>
+            {price && (
+              <div className="text-xs flex flex-col mt-1 h-full w-fit ">
+                <div className="flex items-center text-red-600  gap-1">
+                  <span className="font-bold">RS.</span>
+                  <span className="font-semibold"> {actualPrice}</span>
+                </div>
+                <div className="flex items-center line-through text-red-600  font-light gap-1">
+                  <span>RS.</span>
+                  <span> {price}</span>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -44,6 +44,7 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
                   image={product.image}
                   price={product.price}
                   name={product.name}
+                  discount={product.discount}
                 />
               ))}
             </div>
@@ -62,6 +63,7 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
                   image={product.image}
                   price={product.price}
                   name={product.name}
+                  discount={product.discount}
                 />
               ))}
             </div>

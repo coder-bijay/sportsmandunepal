@@ -20,7 +20,7 @@ const Footer = () => {
             />
           </div>
           <p className="text-sm text-gray-600 w-full leading-6 text-justify px-1">
-            Welcome to Sportsmandu Nepal– Nepal’s Trusted Sports Destination!
+            Welcome to Sportsmandu Nepal – Nepal’s Trusted Sports Destination!
             Get top-quality sports gear at unbeatable wholesale and retail
             prices. From beginner to pro, we’ve got everything you need to level
             up your game. Enjoy fast delivery across Nepal, reliable service,
