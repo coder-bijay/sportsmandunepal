@@ -24,6 +24,7 @@ const ProductsGrid = async ({ searchParams }: ProductGridProps) => {
 
   const productList = (products && products?.data) || [];
 
+  console.log("products:::", products);
   return (
     <div className="container mx-auto p-2 lg:p-4">
       {productList.length === 0 ? (
@@ -36,7 +37,7 @@ const ProductsGrid = async ({ searchParams }: ProductGridProps) => {
             <ProductCard
               key={index}
               slug={product.slug}
-              image={product.image}
+              coverImage={product.coverImage}
               price={product.price}
               name={product.name}
               discount={product.discount}

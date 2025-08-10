@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { CategoryDropdown } from "./CategoryDropdown";
 import { Dispatch, SetStateAction } from "react";
+import { CategoryDropdown } from "../CategoryDropdown";
 
 export const NavItems = ({
   categories,

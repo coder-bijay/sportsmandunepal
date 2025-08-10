@@ -24,7 +24,7 @@ const FeaturedProductGrid = async () => {
             <ProductCard
               key={index}
               slug={product.slug}
-              image={product.image}
+              coverImage={product.coverImage}
               price={product.price}
               name={product.name}
               discount={product.discount}

@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const ProductCard = ({
-  image,
+  coverImage,
   name,
   slug,
   price,
   discount,
 }: {
-  image: string;
+  coverImage: string;
   slug: string;
   name: string;
   price: string | number;
@@ -23,9 +23,9 @@ export const ProductCard = ({
           <Image
             height={240}
             width={240}
-            src={image}
+            src={coverImage}
             alt={name}
-            className="w-full h-44 px-2 object-cover rounded"
+            className="w-full h-44 p-2 object-cover"
           />
         </Link>
         <div className="p-2 lg:p-4 flex flex-col gap-1">
@@ -53,22 +53,22 @@ export const ProductCard = ({
 };
 
 export const ProductCardForSearch = ({
-  image,
+  coverImage,
   name,
   price,
 }: {
-  image: string;
+  coverImage: string;
   name: string;
   price: string | number;
 }) => {
   return (
     <div className="flex items-center gap-1 transition-shadow cursor-pointer rounded-md bg-gray-50 hover:bg-gray-100 w-full p-2">
       <Image
-        height={100}
-        width={100}
-        src={image}
+        height={60}
+        width={120}
+        src={coverImage}
         alt={name}
-        className="object-cover rounded bg-white px-2"
+        className="object-cover h-[60px] w-[120px] rounded-md bg-white p-1"
       />
 
       <div className="p-2 flex flex-col w-full gap-1">

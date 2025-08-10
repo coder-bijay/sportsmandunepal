@@ -128,7 +128,7 @@ export const SearchInput = () => {
                     className="w-full cursor-pointer flex flex-col gap-2"
                   >
                     <ProductCardForSearch
-                      image={product.image}
+                      coverImage={product.coverImage}
                       name={product.name}
                       price={product.price}
                     />

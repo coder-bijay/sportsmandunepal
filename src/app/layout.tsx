@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Container from "../common/Container";
-import { Navbar } from "../common/components/Layout/Navbar";
+import { Navbar } from "../common/components/Layout/Navbar/page";
 import Footer from "../common/components/Layout/Footer";
 
 const geistSans = Geist({
@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sports Mandu Nepal",
+  title: "Sportsmandu Nepal",
   description:
     "Top-quality sports gear at wholesale & retail rates. Fast delivery across Nepal.",
 };

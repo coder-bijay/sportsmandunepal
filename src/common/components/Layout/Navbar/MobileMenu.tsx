@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import Image from "next/image";
-import { SearchInput } from "./SearchInput";
 import { NavItems } from "./NavItems";
 import Link from "next/link";
+import { SearchInput } from "../SearchInput";
 
 export const MobileMenu = ({
   categories,

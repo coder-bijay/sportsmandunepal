@@ -5,7 +5,9 @@ export interface IProduct {
   description: string;
   price: number;
   discount: number;
-  image: string;
+  coverImage: string;
+  images: string[];
+  availableSizes: string[];
   category: string;
   stock: number;
 }

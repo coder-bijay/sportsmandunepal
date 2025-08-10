@@ -41,7 +41,7 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
                 <ProductCard
                   key={index}
                   slug={product.slug}
-                  image={product.image}
+                  coverImage={product.coverImage}
                   price={product.price}
                   name={product.name}
                   discount={product.discount}
@@ -60,7 +60,7 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
                 <ProductCard
                   key={index}
                   slug={product.slug}
-                  image={product.image}
+                  coverImage={product.coverImage}
                   price={product.price}
                   name={product.name}
                   discount={product.discount}
