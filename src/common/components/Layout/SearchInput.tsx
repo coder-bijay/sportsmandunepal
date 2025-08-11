@@ -88,7 +88,7 @@ export const SearchInput = () => {
         />
         <button
           onClick={() => navigateToSearch(inputValue)}
-          className="px-3 text-blue-400"
+          className="px-3 text-brand"
         >
           <FiSearch />
         </button>
@@ -102,14 +102,14 @@ export const SearchInput = () => {
               <span
                 key={term}
                 onClick={() => navigateToSearch(term)}
-                className="cursor-pointer border capitalize border-blue-400 rounded-md text-blue-400 text-[12px] lg:text-[14px] font-medium px-2 py-1"
+                className="cursor-pointer border capitalize border-brand rounded-md text-brand text-[12px] lg:text-[14px] font-medium px-2 py-1"
               >
                 {term}
               </span>
             ))}
           </div>
 
-          <div className="py-2 border-t-[2px] border-blue-400">
+          <div className="py-2 border-t-[2px] border-brand">
             <span className="font-semibold text-[14px]">Search Results</span>
             <div className="flex flex-col gap-2 justify-center items-center overflow-y-auto mt-1">
               {isSearching ? (

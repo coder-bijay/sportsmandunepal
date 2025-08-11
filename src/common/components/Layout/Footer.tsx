@@ -62,16 +62,16 @@ const Footer = () => {
           {/* Explore */}
           <div className="px-0 lg:px-10 w-full">
             <h3 className="text-md font-semibold mb-4">Explore</h3>
-            <ul className="space-y-2 text-sm flex flex-col text-blue-500 md:text-gray-700">
+            <ul className="space-y-2 text-sm flex flex-col text-brand md:text-gray-700">
               <Link
                 href="/products/new-arrivals"
-                className="hover:text-blue-500"
+                className="hover:text-gray-800"
               >
                 New Arrivals
               </Link>
               <Link
                 href="/products/featured-products"
-                className="hover:text-blue-500"
+                className="hover:text-gray-800"
               >
                 Featured Products
               </Link>
@@ -103,7 +103,7 @@ const Footer = () => {
         </div>
       </div>
       {/* Bottom copyright */}
-      <div className="text-center text-sm text-gray-500 py-4 border-t border-gray-300">
+      <div className="text-center text-sm text-gray-400 py-4 border-t border-gray-300">
         Copyright © {new Date().getFullYear()} Sportsmandu Nepal
       </div>
     </footer>

@@ -31,7 +31,7 @@ const ProductDetailPage = async ({
         <div className="mb-4">
           {productData?.price && (
             <div className="text-xs flex flex-col mt-1 h-full w-fit ">
-              <div className="flex items-center text-blue-600  gap-1">
+              <div className="flex items-center text-brand  gap-1">
                 <span className="font-bold">RS.</span>
                 <span className="font-semibold"> {actualPrice}</span>
               </div>
@@ -63,13 +63,13 @@ const ProductDetailPage = async ({
 
         <p
           className={`text-sm ${
-            !!productData.stock ? "text-blue-500" : "text-red-500"
+            !!productData.stock ? "text-brand" : "text-red-500"
           } mb-2`}
         >
           {!!productData.stock ? "In stock" : "Out of stock"}
         </p>
         <button
-          className="bg-blue-500 w-[140px] text-white px-4 py-1 rounded disabled:opacity-50"
+          className="bg-brand w-[140px] text-white px-4 py-1 rounded disabled:opacity-50"
           disabled={!productData.stock}
         >
           Add to cart

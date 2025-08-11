@@ -37,7 +37,7 @@ export const Navbar = async () => {
       </Container>
 
       {/* Desktop Nav Items */}
-      <div className="hidden lg:flex bg-blue-600 w-full justify-center h-[48px]">
+      <div className="hidden lg:flex bg-brand w-full justify-center h-[48px]">
         <div className="w-full max-w-[1920px] h-full">
           <div className="container mx-auto flex gap-8 xl:gap-10 h-full text-md items-center justify-center font-semibold text-white">
             <NavItems categories={categories?.data} />
