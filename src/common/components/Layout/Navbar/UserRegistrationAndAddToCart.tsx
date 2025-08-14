@@ -10,14 +10,17 @@ import Link from "next/link";
 export const UserRegistrationAndAddToCart = () => {
   const [openLoginModal, setOpenLoginModal] = React.useState(false);
   const { authenticated, user } = isAuthenticated();
+  const hasCartData = false;
   return (
     <>
       <div className="flex items-center gap-6 text-xl">
         <Link href={`/cart`} className="relative pt-1">
           <FiShoppingCart className="cursor-pointer" />
-          <span className="rounded-full absolute bg-brand flex justify-center items-center text-white w-4 h-4 text-[12px] -top-2.5 -right-2">
-            3
-          </span>
+          {hasCartData && (
+            <span className="rounded-full absolute bg-brand flex justify-center items-center text-white w-4 h-4 text-[12px] -top-2.5 -right-2">
+              3
+            </span>
+          )}
         </Link>
 
         {authenticated ? (

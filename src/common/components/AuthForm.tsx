@@ -93,7 +93,11 @@ export const AuthForm = ({
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-b from-white to-red-50 min-h-[360px]">
+    <div
+      className={`relative w-full overflow-hidden min-h-[360px] ${
+        !forCart && " bg-gradient-to-b from-white to-red-50"
+      } `}
+    >
       <div
         className={`flex transition-transform duration-500 ease-in-out ${
           isSignup ? "-translate-x-1/2" : "translate-x-0"
@@ -115,7 +119,7 @@ export const AuthForm = ({
               <Form className="flex flex-col gap-4 pb-6 px-6 items-center justify-center w-full h-full">
                 {forCart ? (
                   <div className="w-full text-[24px] mb-6 flex items-center justify-between">
-                    <span> Welcome to Sportsmandu Nepal! Please login.</span>
+                    <span> Welcome to Sportsmandu! Please login.</span>
                     <span className="text-[14px] flex items-center gap-1">
                       New Member?
                       <span
@@ -132,7 +136,7 @@ export const AuthForm = ({
                   </div>
                 ) : (
                   <div className="w-full text-[18px] mb-6 flex items-center justify-between">
-                    <span> Welcome to Sportsmandu Nepal! Please login.</span>
+                    <span> Welcome to Sportsmandu! Please login.</span>
                   </div>
                 )}
                 <div
@@ -220,7 +224,7 @@ export const AuthForm = ({
               <Form className="flex flex-col gap-4 pb-6 px-6 pt-4 items-center justify-center w-full">
                 {forCart && (
                   <div className="w-full text-[24px] mb-6 flex items-center justify-between">
-                    <span>Create your Daraz Account</span>
+                    <span>Create your Sportsmandu Account</span>
                     <span className="text-[14px] flex items-center gap-1">
                       Already Member?
                       <span
