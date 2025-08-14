@@ -1,5 +1,3 @@
-import { FiShoppingCart } from "react-icons/fi";
-import { FaRegUser } from "react-icons/fa";
 import Image from "next/image";
 import { getAllCategory } from "@/src/libs/category";
 import Link from "next/link";

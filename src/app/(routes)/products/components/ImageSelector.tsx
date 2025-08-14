@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const ImageSelector = ({ images }: { images: string[] }) => {
@@ -9,9 +10,11 @@ const ImageSelector = ({ images }: { images: string[] }) => {
     <div className="flex flex-col items-start">
       <div className="flex gap-2 mb-4">
         {images.map((img, idx) => (
-          <img
+          <Image
             key={idx}
             src={img}
+            width={48}
+            height={48}
             alt={`thumbnail-${idx}`}
             className={`w-12 h-12 object-cover rounded cursor-pointer ${
               selectedImage === img
@@ -23,7 +26,9 @@ const ImageSelector = ({ images }: { images: string[] }) => {
         ))}
       </div>
       <div className="w-80 h-80 border rounded overflow-hidden">
-        <img
+        <Image
+          width={320}
+          height={320}
           src={selectedImage}
           alt="Selected Product"
           className="w-full h-full object-cover"

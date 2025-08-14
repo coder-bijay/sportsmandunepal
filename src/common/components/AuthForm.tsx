@@ -24,7 +24,7 @@ type AuthEndpoint = "client/login" | "client/signup";
 interface ApiResponse {
   token?: string;
   message?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const loginValidationSchema = Yup.object({
@@ -145,7 +145,7 @@ export const AuthForm = ({ closeModal }: { closeModal: () => void }) => {
                     label="Login"
                   />
                   <div className="flex items-center gap-2 mt-2">
-                    Don't have an account?
+                    {` Don't have an account?`}
                     <span
                       onClick={() => {
                         setIsSignup(true);
@@ -166,7 +166,7 @@ export const AuthForm = ({ closeModal }: { closeModal: () => void }) => {
         <div className="w-1/2 px-4">
           <Formik<SignupData & { confirmPassword: string }>
             onSubmit={async (values) => {
-              const { confirmPassword, ...signupData } = values;
+              const { ...signupData } = values;
               const data = await sendAuthRequest("client/signup", signupData);
               if (data) {
                 setIsSignup(false);

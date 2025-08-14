@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
 export const Input = ({
   type = "text",
@@ -11,10 +11,10 @@ export const Input = ({
 }: {
   value?: string;
   type?: string;
-  onChange?: (e: any) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   title: string;
   placeholder: string;
-  errorMessage?: any;
+  errorMessage?: string;
   disabled?: boolean;
 }) => {
   return (

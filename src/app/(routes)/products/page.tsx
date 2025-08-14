@@ -24,7 +24,6 @@ const ProductsGrid = async ({ searchParams }: ProductGridProps) => {
 
   const productList = (products && products?.data) || [];
 
-  console.log("products:::", products);
   return (
     <div className="container mx-auto p-2 lg:p-4">
       {productList.length === 0 ? (
