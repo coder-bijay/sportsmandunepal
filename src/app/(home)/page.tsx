@@ -24,6 +24,8 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
 
   const productList = (products && products?.data) || [];
 
+  // abcd
+
   return (
     <div className="container flex items-center justify-center flex-col mx-auto p-2 lg:p-4">
       {search ? (
