@@ -5,6 +5,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { CustomModal } from "../../Modal";
 import { AuthForm } from "../../AuthForm";
 import { isAuthenticated } from "@/src/utils/isAuthenticated";
+import Link from "next/link";
 
 export const UserRegistrationAndAddToCart = () => {
   const [openLoginModal, setOpenLoginModal] = React.useState(false);
@@ -12,12 +13,12 @@ export const UserRegistrationAndAddToCart = () => {
   return (
     <>
       <div className="flex items-center gap-6 text-xl">
-        <div className="relative pt-1">
+        <Link href={`/cart`} className="relative pt-1">
           <FiShoppingCart className="cursor-pointer" />
           <span className="rounded-full absolute bg-brand flex justify-center items-center text-white w-4 h-4 text-[12px] -top-2.5 -right-2">
             3
           </span>
-        </div>
+        </Link>
 
         {authenticated ? (
           <div className="flex items-center gap-2">

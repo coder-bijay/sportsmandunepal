@@ -46,7 +46,13 @@ const signupValidationSchema = Yup.object({
     .required("Confirm password is required"),
 });
 
-export const AuthForm = ({ closeModal }: { closeModal: () => void }) => {
+export const AuthForm = ({
+  closeModal,
+  forCart,
+}: {
+  forCart?: boolean;
+  closeModal?: () => void;
+}) => {
   const [loading, setLoading] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
   const [error, setError] = useState<string>("");
@@ -71,7 +77,7 @@ export const AuthForm = ({ closeModal }: { closeModal: () => void }) => {
       if (!res.ok) {
         throw new Error(result.message || "Something went wrong");
       }
-      closeModal();
+      closeModal?.();
       console.log("Success:", result);
       Cookies.set("user_token", result?.token as string);
       Cookies.set("user_name", result?.name as string);
@@ -87,7 +93,7 @@ export const AuthForm = ({ closeModal }: { closeModal: () => void }) => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden min-h-[360px]">
+    <div className="relative w-full overflow-hidden bg-gradient-to-b from-white to-red-50 min-h-[360px]">
       <div
         className={`flex transition-transform duration-500 ease-in-out ${
           isSignup ? "-translate-x-1/2" : "translate-x-0"
@@ -106,8 +112,35 @@ export const AuthForm = ({ closeModal }: { closeModal: () => void }) => {
             initialValues={{ email: "", password: "" }}
           >
             {(formik) => (
-              <Form className="w-full h-full items-center justify-center">
-                <div className="flex flex-col gap-4 pb-6 px-6 items-center justify-center w-full h-full">
+              <Form className="flex flex-col gap-4 pb-6 px-6 items-center justify-center w-full h-full">
+                {forCart ? (
+                  <div className="w-full text-[24px] mb-6 flex items-center justify-between">
+                    <span> Welcome to Sportsmandu Nepal! Please login.</span>
+                    <span className="text-[14px] flex items-center gap-1">
+                      New Member?
+                      <span
+                        onClick={() => {
+                          setIsSignup(true);
+                          setError("");
+                        }}
+                        className="text-blue-400 cursor-pointer font-semibold"
+                      >
+                        Register
+                      </span>
+                      here.
+                    </span>
+                  </div>
+                ) : (
+                  <div className="w-full text-[18px] mb-6 flex items-center justify-between">
+                    <span> Welcome to Sportsmandu Nepal! Please login.</span>
+                  </div>
+                )}
+                <div
+                  className={`flex flex-col justify-center items-center w-full ${
+                    forCart &&
+                    "px-6 lg:px-10 2xl:px-20 py-6 rounded-md bg-gradient-to-r from-green-50 to-red-50"
+                  } gap-4`}
+                >
                   <Input
                     onChange={(e) => {
                       formik.setFieldValue("email", e.target.value);
@@ -144,18 +177,20 @@ export const AuthForm = ({ closeModal }: { closeModal: () => void }) => {
                     variant="primary"
                     label="Login"
                   />
-                  <div className="flex items-center gap-2 mt-2">
-                    {` Don't have an account?`}
-                    <span
-                      onClick={() => {
-                        setIsSignup(true);
-                        setError("");
-                      }}
-                      className="text-colorPrimary font-bold underline cursor-pointer"
-                    >
-                      Signup
-                    </span>
-                  </div>
+                  {!forCart && (
+                    <div className="flex items-center gap-2 mt-2">
+                      {` Don't have an account?`}
+                      <span
+                        onClick={() => {
+                          setIsSignup(true);
+                          setError("");
+                        }}
+                        className="text-colorPrimary font-bold underline cursor-pointer"
+                      >
+                        Signup
+                      </span>
+                    </div>
+                  )}
                 </div>
               </Form>
             )}
@@ -182,8 +217,31 @@ export const AuthForm = ({ closeModal }: { closeModal: () => void }) => {
             }}
           >
             {(formik) => (
-              <Form>
-                <div className="flex flex-col gap-4 pb-6 px-6 pt-4 items-center justify-center w-full">
+              <Form className="flex flex-col gap-4 pb-6 px-6 pt-4 items-center justify-center w-full">
+                {forCart && (
+                  <div className="w-full text-[24px] mb-6 flex items-center justify-between">
+                    <span>Create your Daraz Account</span>
+                    <span className="text-[14px] flex items-center gap-1">
+                      Already Member?
+                      <span
+                        onClick={() => {
+                          setIsSignup(false);
+                          setError("");
+                        }}
+                        className="text-blue-400 cursor-pointer font-semibold"
+                      >
+                        Login
+                      </span>
+                      here.
+                    </span>
+                  </div>
+                )}
+                <div
+                  className={`flex flex-col justify-center items-center w-full ${
+                    forCart &&
+                    "px-6 lg:px-10 2xl:px-20 py-6 rounded-md bg-gradient-to-r from-green-50 to-red-50"
+                  } gap-4`}
+                >
                   <Input
                     onChange={(e) => {
                       formik.setFieldValue("name", e.target.value);
@@ -255,18 +313,20 @@ export const AuthForm = ({ closeModal }: { closeModal: () => void }) => {
                     variant="primary"
                     label="Signup"
                   />
-                  <div className="flex items-center gap-2 mt-2">
-                    Already have an account?
-                    <span
-                      onClick={() => {
-                        setIsSignup(false);
-                        setError("");
-                      }}
-                      className="text-colorPrimary font-bold underline cursor-pointer"
-                    >
-                      Login
-                    </span>
-                  </div>
+                  {!forCart && (
+                    <div className="flex items-center gap-2 mt-2">
+                      Already have an account?
+                      <span
+                        onClick={() => {
+                          setIsSignup(false);
+                          setError("");
+                        }}
+                        className="text-colorPrimary font-bold underline cursor-pointer"
+                      >
+                        Login
+                      </span>
+                    </div>
+                  )}
                 </div>
               </Form>
             )}
