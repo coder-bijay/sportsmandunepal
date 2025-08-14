@@ -70,7 +70,6 @@ const ProductGrid = async ({ searchParams }: ProductGridProps) => {
           )}
         </div>
       )}
-      testtstdtstdtst
     </div>
   );
 };
