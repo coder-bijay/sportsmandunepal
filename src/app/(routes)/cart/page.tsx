@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import Cookies from "js-cookie";
 
-const page = () => {
+const CartPage = () => {
   const hasLoggedIn = Cookies.get("user_token");
 
   return (
@@ -28,4 +28,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CartPage;
