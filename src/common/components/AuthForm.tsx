@@ -49,13 +49,64 @@ const signupValidationSchema = Yup.object({
 export const AuthForm = ({
   closeModal,
   forCart,
+  addToCart = false,
+  productId,
+  quantity,
 }: {
+  addToCart?: boolean;
+  productId?: string;
+  quantity?: number;
   forCart?: boolean;
   closeModal?: () => void;
 }) => {
   const [loading, setLoading] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
   const [error, setError] = useState<string>("");
+
+  const sendRequestForAddToCart = async ({
+    productId,
+    token,
+    quantity,
+  }: {
+    productId: string;
+    token: string;
+    quantity: number;
+  }) => {
+    try {
+      setError("");
+      setLoading(true);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/cart-product`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            quantity,
+            product: productId,
+          }),
+        }
+      );
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message || "Something went wrong");
+      }
+      console.log("Success:", result);
+      closeModal?.();
+      window?.location?.reload();
+      return result;
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "Unknown error occurred";
+      setError(message);
+      return null;
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const sendAuthRequest = async <T extends LoginData | SignupData>(
     endpoint: AuthEndpoint,
@@ -77,11 +128,21 @@ export const AuthForm = ({
       if (!res.ok) {
         throw new Error(result.message || "Something went wrong");
       }
-      closeModal?.();
+
       console.log("Success:", result);
       Cookies.set("user_token", result?.token as string);
       Cookies.set("user_name", result?.name as string);
-      window?.location?.reload();
+      if (result && addToCart) {
+        await sendRequestForAddToCart({
+          productId: productId ?? "",
+          quantity: quantity ?? 1,
+          token: result?.token ?? "",
+        });
+      }
+      if (!addToCart) {
+        closeModal?.();
+        window?.location?.reload();
+      }
       return result;
     } catch (err) {
       const message =

@@ -79,7 +79,12 @@ export const QuantitySelectorAndCart: React.FC<QuantitySelectorProps> = ({
         isOpen={openLoginModal}
         title=""
       >
-        <AuthForm closeModal={() => setOpenLoginModal(false)} />
+        <AuthForm
+          productId={productData?._id}
+          quantity={quantity}
+          addToCart={true}
+          closeModal={() => setOpenLoginModal(false)}
+        />
       </CustomModal>
     </>
   );

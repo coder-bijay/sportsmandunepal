@@ -123,7 +123,7 @@ export const SearchInput = () => {
               ) : (
                 searchResults.map((product) => (
                   <div
-                    key={product.id}
+                    key={product?._id}
                     onClick={() => handleProductClick(product.slug)}
                     className="w-full cursor-pointer flex flex-col gap-2"
                   >
