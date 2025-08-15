@@ -56,10 +56,10 @@ const ProductDetailPage = async ({
 
         <p
           className={`text-sm ${
-            !!productData.stock ? "text-brand" : "text-red-500"
+            productData.stock > 0 ? "text-brand" : "text-red-500"
           } mb-2`}
         >
-          {!!productData.stock ? "In stock" : "Out of stock"}
+          {productData.stock > 0 ? "In stock" : "Out of stock"}
         </p>
 
         <QuantitySelectorAndCart productData={productData} />
