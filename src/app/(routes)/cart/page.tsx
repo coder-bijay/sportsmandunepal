@@ -2,14 +2,14 @@ import { AuthForm } from "@/src/common/components/AuthForm";
 import { Button } from "@/src/common/components/Button";
 import Link from "next/link";
 import React from "react";
-import Cookies from "js-cookie";
+import { isAuthenticated } from "@/src/utils/isAuthenticated";
 
 const CartPage = () => {
-  const hasLoggedIn = Cookies.get("user_token");
+  const { authenticated } = isAuthenticated();
 
   return (
     <div className="flex flex-col justify-center items-center py-4 w-full h-full">
-      {hasLoggedIn ? (
+      {authenticated ? (
         <div className="flex flex-col gap-4">
           <span className="text-gray-400">There are no items in this cart</span>
           <Link href={`/`}>

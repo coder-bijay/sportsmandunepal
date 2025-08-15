@@ -81,6 +81,7 @@ export const AuthForm = ({
       console.log("Success:", result);
       Cookies.set("user_token", result?.token as string);
       Cookies.set("user_name", result?.name as string);
+      window?.location?.reload();
       return result;
     } catch (err) {
       const message =

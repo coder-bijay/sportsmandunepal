@@ -1,7 +1,7 @@
 import { getProductBySlug } from "@/src/libs/products";
 import ImageSelector from "../components/ImageSelector";
 import { IProduct } from "../interface";
-import QuantitySelector from "@/src/common/components/QuantitySelector";
+import { QuantitySelectorAndCart } from "@/src/common/components/QuantitySelector";
 
 const ProductDetailPage = async ({
   params,
@@ -54,13 +54,6 @@ const ProductDetailPage = async ({
           ))}
         </div>
 
-        <QuantitySelector
-          min={1}
-          max={5}
-          initial={1}
-          // onChange={(qty) => console.log("Quantity:", qty)}
-        />
-
         <p
           className={`text-sm ${
             !!productData.stock ? "text-brand" : "text-red-500"
@@ -68,12 +61,8 @@ const ProductDetailPage = async ({
         >
           {!!productData.stock ? "In stock" : "Out of stock"}
         </p>
-        <button
-          className="bg-brand w-[140px] text-white px-4 py-1 rounded disabled:opacity-50"
-          disabled={!productData.stock}
-        >
-          Add to cart
-        </button>
+
+        <QuantitySelectorAndCart productData={productData} />
       </div>
     </div>
   );
