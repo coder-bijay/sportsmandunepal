@@ -14,7 +14,6 @@ const fetchCartProducts = async () => {
   const { data } = await Axios.get(`cart-product/client`);
   return data;
 };
-
 export const UserRegistrationAndAddToCart = () => {
   const [openLoginModal, setOpenLoginModal] = React.useState(false);
   const { authenticated, user } = isAuthenticated();
@@ -23,11 +22,11 @@ export const UserRegistrationAndAddToCart = () => {
     success: boolean;
     message: string;
     data: {
+      _id: string;
       quantity: number;
       client: string;
       product: IProduct;
     }[];
-    totalCounts: number;
   }>({
     refetchOnWindowFocus: false,
     queryKey: ["cartProducts"],

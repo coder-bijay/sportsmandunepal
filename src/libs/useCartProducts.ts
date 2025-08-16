@@ -6,6 +6,8 @@ import { IProduct } from "../app/(routes)/products/interface";
 
 const fetchCartProducts = async () => {
   const data: {
+    success: boolean;
+    message: string;
     data: {
       _id: string;
       quantity: number;
@@ -22,7 +24,7 @@ export const useCartProducts = () => {
   return useQuery({
     refetchOnWindowFocus: false,
     queryKey: ["cartProducts"],
-    queryFn: fetchCartProducts,
+    queryFn: async () => fetchCartProducts(),
     enabled: authenticated,
   });
 };

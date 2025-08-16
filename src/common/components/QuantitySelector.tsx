@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { CustomModal } from "./Modal";
 import { AuthForm } from "./AuthForm";
-import { useCartProducts } from "@/src/libs/useCartProducts";
+// import { useCartProducts } from "@/src/libs/useCartProducts";
 
 interface QuantitySelectorProps {
   productData?: IProduct;
@@ -19,7 +19,7 @@ export const QuantitySelectorAndCart: React.FC<QuantitySelectorProps> = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
 
-  const { refetch } = useCartProducts();
+  // const { refetch } = useCartProducts();
 
   const [quantity, setQuantity] = useState(1);
   const min = 1;
@@ -68,10 +68,11 @@ export const QuantitySelectorAndCart: React.FC<QuantitySelectorProps> = ({
       const result = await res.json();
 
       if (!res.ok) {
+        // refetch();
         throw new Error(result.message || "Something went wrong");
       }
       console.log("Success:", result);
-      refetch();
+
       return result;
     } catch (err) {
       const message =
