@@ -5,16 +5,21 @@ import React, { useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { CustomModal } from "./Modal";
 import { AuthForm } from "./AuthForm";
+import { useCartProducts } from "@/src/libs/useCartProducts";
 
 interface QuantitySelectorProps {
-  productData: IProduct;
+  productData?: IProduct;
 }
 
 export const QuantitySelectorAndCart: React.FC<QuantitySelectorProps> = ({
   productData,
 }) => {
   const [openLoginModal, setOpenLoginModal] = React.useState(false);
-  const { authenticated } = isAuthenticated();
+  const { authenticated, token } = isAuthenticated();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string>("");
+
+  const { refetch } = useCartProducts();
 
   const [quantity, setQuantity] = useState(1);
   const min = 1;
@@ -34,8 +39,53 @@ export const QuantitySelectorAndCart: React.FC<QuantitySelectorProps> = ({
     }
   };
 
+  const sendRequestForAddToCart = async ({
+    productId,
+    token,
+    quantity,
+  }: {
+    productId: string;
+    token: string;
+    quantity: number;
+  }) => {
+    try {
+      setError("");
+      setLoading(true);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/cart-product`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            quantity,
+            product: productId,
+          }),
+        }
+      );
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message || "Something went wrong");
+      }
+      console.log("Success:", result);
+      refetch();
+      return result;
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "Unknown error occurred";
+      setError(message);
+      return null;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
+      {error && <span className="text-sm text-red-500">{error}</span>}
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-2">
           {/* Decrease Button */}
@@ -66,10 +116,14 @@ export const QuantitySelectorAndCart: React.FC<QuantitySelectorProps> = ({
           onClick={() =>
             !authenticated
               ? setOpenLoginModal(true)
-              : alert("add to cart flow is pending...")
+              : sendRequestForAddToCart({
+                  productId: productData?._id ?? "",
+                  quantity: quantity ?? 1,
+                  token: token ?? "",
+                })
           }
           className="bg-brand w-[140px] cursor-pointer text-white px-4 py-1 rounded disabled:opacity-50"
-          disabled={!productData.stock}
+          disabled={!productData?.stock || loading}
         >
           Add to cart
         </button>

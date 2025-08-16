@@ -4,6 +4,7 @@ import "./globals.css";
 import Container from "../common/Container";
 import { Navbar } from "../common/components/Layout/Navbar/page";
 import Footer from "../common/components/Layout/Footer";
+import QueryProvider from "../common/components/Layout/QueryProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,13 +33,15 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="antialiased">
-        <Navbar />
-        <main className="mt-[60px] flex flex-col justify-between lg:px-4 lg:mt-[108px] w-full h-[calc(100vh-60px)] lg:h-[calc(100vh-108px)] ">
-          <Container>{children}</Container>
-          <Footer />
-        </main>
-      </body>
+      <QueryProvider>
+        <body className="antialiased">
+          <Navbar />
+          <main className="mt-[60px] flex flex-col justify-between lg:px-4 lg:mt-[108px] w-full h-[calc(100vh-60px)] lg:h-[calc(100vh-108px)] ">
+            <Container>{children}</Container>
+            <Footer />
+          </main>
+        </body>
+      </QueryProvider>
     </html>
   );
 }

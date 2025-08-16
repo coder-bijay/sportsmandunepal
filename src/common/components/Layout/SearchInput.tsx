@@ -128,9 +128,10 @@ export const SearchInput = () => {
                     className="w-full cursor-pointer flex flex-col gap-2"
                   >
                     <ProductCardForSearch
-                      coverImage={product.coverImage}
-                      name={product.name}
-                      price={product.price}
+                      coverImage={product?.coverImage}
+                      name={product?.name}
+                      price={product?.price}
+                      discount={product?.discount}
                     />
                     <div className="h-[1px] w-full bg-gray-100" />
                   </div>

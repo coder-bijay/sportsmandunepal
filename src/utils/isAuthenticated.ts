@@ -6,5 +6,6 @@ export const isAuthenticated = () => {
   return {
     authenticated: Boolean(token && token.trim() !== ""),
     user: name,
+    token: token?.trim(),
   };
 };
