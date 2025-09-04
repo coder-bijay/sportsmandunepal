@@ -16,22 +16,24 @@ const ImageSelector = ({ images }: { images: string[] }) => {
             width={48}
             height={48}
             alt={`thumbnail-${idx}`}
-            className={`w-12 h-12 object-cover rounded cursor-pointer ${
+            className={`w-12 h-12 object-cover rounded cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-md ${
               selectedImage === img
-                ? "border border-green-600"
+                ? "ring-2 ring-green-600 border border-green-600"
                 : "border border-gray-300"
             }`}
             onClick={() => setSelectedImage(img)}
           />
         ))}
       </div>
-      <div className="w-80 h-80 border rounded overflow-hidden">
+      <div className="w-80 h-80 border rounded overflow-hidden relative bg-white shadow-sm">
         <Image
+          key={selectedImage}
           width={320}
           height={320}
           src={selectedImage}
           alt="Selected Product"
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover transition-opacity duration-300 ease-out`}
+          priority
         />
       </div>
     </div>
